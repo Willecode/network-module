@@ -6,7 +6,9 @@ CONFIG += qt
 QT += network
 
 SOURCES += main.cpp \
-    network.cpp
+    network.cpp \
+    parser.cpp
 
 HEADERS += \
-    network.h
+    network.h \
+    parser.h

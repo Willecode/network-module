@@ -49,7 +49,12 @@ void Network::replyFinished(QNetworkReply *reply)
         qDebug() << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
         qDebug() << reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
         */
-        std::cout << reply->readAll().toStdString();
+        std::string data = reply->readAll().toStdString();
+        std::vector<std::string> variables = {"__EVENTTARGET", "__EVENTARGUMENT", "__VIEWSTATE"};
+        std::map<std::string, std::string> variableData;
+        Parser parser;
+        parser.parseVariables(data, variables);
+        //std::cout << reply->readAll().toStdString();
     }
         reply->deleteLater();
 }

@@ -8,8 +8,12 @@
 #include <iostream>
 #include <QDebug>
 #include <QHttpMultiPart>
-#include <QFile>
-#include <QTextStream>
+
+#include "parser.h"
+
+/**
+ * @brief Class for post requests
+ */
 class Network : public QObject
 {
     Q_OBJECT
