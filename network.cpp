@@ -50,10 +50,16 @@ void Network::replyFinished(QNetworkReply *reply)
         qDebug() << reply->attribute(QNetworkRequest::HttpReasonPhraseAttribute).toString();
         */
         std::string data = reply->readAll().toStdString();
-        std::vector<std::string> variables = {"__EVENTTARGET", "__EVENTARGUMENT", "__VIEWSTATE"};
+        std::vector<std::string> variables = {"__EVENTTARGET", "__EVENTARGUMENT", "__VIEWSTATE", "__VIEWSTATEGENERATOR", "__EVENTVALIDATION"};
         std::map<std::string, std::string> variableData;
         Parser parser;
-        parser.parseVariables(data, variables);
+        variableData = parser.parseVariables(data, variables);
+
+        // Debugging stuff ***************
+        for (auto x : variableData){
+            std::cout << x.first << ": " << x.second << std::endl;
+        }
+        // *******************************
         //std::cout << reply->readAll().toStdString();
     }
         reply->deleteLater();

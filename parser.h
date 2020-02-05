@@ -15,6 +15,12 @@ class Parser
 {
 public:
     Parser();
+    /**
+     * @brief Mine variable values from data
+     * @param data
+     * @param variables
+     * @return map<variable, value>
+     */
     std::map<std::string, std::string> parseVariables(std::string data, std::vector<std::string> variables);
 };
 
