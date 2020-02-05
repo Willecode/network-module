@@ -1,0 +1,12 @@
+TEMPLATE = app
+CONFIG += console c++11
+CONFIG -= app_bundle
+CONFIG += qt
+
+QT += network
+
+SOURCES += main.cpp \
+    network.cpp
+
+HEADERS += \
+    network.h
